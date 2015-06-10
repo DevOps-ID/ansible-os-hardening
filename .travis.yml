@@ -12,4 +12,4 @@ install:
 
 script:
   - ansible-playbook --syntax-check spec/travis.yml
-  - ansible-playbook --sudo -v --diff spec/travis.yml -e 'sysctl_config.net.ipv6.conf.all.disable_ipv6=0 sysctl_config.net.ipv4.tcp_timestamps=1'
+  - ansible-playbook --sudo -v --diff spec/travis.yml --extra-vars "@spec/travis_exceptions.json"
